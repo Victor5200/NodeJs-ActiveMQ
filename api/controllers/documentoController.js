@@ -1,10 +1,8 @@
 'use strict';
 
 const stompit = require('stompit');
-
 const xml2js = require('xml2js');
-
-const importModel = require('../controllers/documentoModel.js');
+require('../controllers/documentoModel.js');
 
 const SituacaoDocumento = {
     EM_ELABORACAO: 'Em Elaboração',
@@ -15,9 +13,8 @@ const SituacaoDocumento = {
 
 exports.publica_mensagem_active = function (req, res) {
     let documento = new Documento();
-
     documento.initModel({ id : 1 } );
-    documento.setDescricao("Oficio Circular nª 0001/2019 - OUTSPOKEN");
+    documento.setDescricao("Oficio Circular nª 0001/2019");
     documento.setNumeroProcessoPeticao("0001/2019");
     documento.setTipoDocumento("Oficio");
     documento.setSetorCriacao("DAS - Departamento de Arquitetura de Software");
@@ -36,5 +33,5 @@ exports.publica_mensagem_active = function (req, res) {
       client.disconnect();
     });
 
-    res.json("SUCESSO !!!");
+    res.json("SUCESSO !!!"); // Mudar pra send
 }
